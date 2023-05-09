@@ -1,0 +1,48 @@
+<index.html>
+
+    <html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>카톡 공유</title>
+        <script type="text/JavaScript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    </head>
+
+    <body>
+        <button id="sendButton" onclick="sendLinkDefault()">카카오톡 공유하기</button>
+
+        <script>
+            try {
+                function sendLinkDefault() {
+                    Kakao.init('fc140a709fefec11ce767c5bd9c627af')
+                    Kakao.Link.sendDefault({
+                        objectType: 'feed',
+                        content: {
+                            title: '대충 제목',
+                            description: '대충 카테고리',
+                            imageUrl:
+                                '컴학.jpg',
+                            link: {
+                                webUrl: 'https://computer.knu.ac.kr/bbs/board.php?bo_table=sub5_1',
+                                mobileWebUrl: 'https://computer.knu.ac.kr/bbs/board.php?bo_table=sub5_1',
+                            },
+                        },
+                        buttons: [
+                            {
+                                title: '웹으로 보기',
+                                link: {
+                                    webUrl: 'https://computer.knu.ac.kr/bbs/board.php?bo_table=sub5_1',
+                                    mobileWebUrl: 'https://computer.knu.ac.kr/bbs/board.php?bo_table=sub5_1',
+                                },
+                            },
+                        ],
+                    })
+                }
+                ; window.kakaoDemoCallback && window.kakaoDemoCallback()
+            }
+            catch (e) { window.kakaoDemoException && window.kakaoDemoException(e) }
+        </script>
+
+    </body>
+
+    </html>
